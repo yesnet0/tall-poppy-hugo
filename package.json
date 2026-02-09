@@ -1,0 +1,16 @@
+{
+  "name": "tall-poppy-hugo",
+  "version": "1.0.0",
+  "description": "Tall Poppy Group website - Hugo static site",
+  "scripts": {
+    "dev": "hugo server --buildDrafts",
+    "build": "hugo --minify",
+    "css:build": "npx tailwindcss -i ./assets/css/main.css -o ./static/css/style.css --minify",
+    "css:watch": "npx tailwindcss -i ./assets/css/main.css -o ./static/css/style.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.0",
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.32"
+  }
+}

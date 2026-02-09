@@ -1,0 +1,20 @@
+- id: white-label-security
+  name: White Label Security
+  description: Secure more clients.
+  image: images/logos/white-label-security.jpeg
+  website: https://whitelabelsecurity.com
+  founded: 2010
+
+- id: bugcrowd
+  name: Bugcrowd
+  description: The pioneers of crowdsourced cybersecurity.
+  image: images/logos/bugcrowd.png
+  website: https://www.bugcrowd.com
+  founded: 2012
+
+- id: disclose-io
+  name: The Disclose.io Project
+  description: We're here to make vulnerability disclosure safe, simple, and standardized for everyone.
+  image: images/logos/disclose-io.jpeg
+  website: https://disclose.io
+  founded: 2018

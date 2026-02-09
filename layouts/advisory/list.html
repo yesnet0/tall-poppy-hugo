@@ -1,0 +1,41 @@
+{{ define "main" }}
+<div class="container mx-auto px-4 py-12">
+  <h1 class="text-4xl font-bold mb-12">Investing and Advisory</h1>
+
+  <p class="text-lg mb-8">
+    Tall Poppy Group provides investment capital and strategic advisory services to a select group of innovative
+    cybersecurity companies. We partner with founders who are building the next generation of security solutions.
+  </p>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    {{ range site.Data.advisory }}
+    <div class="card">
+      <a
+        href="{{ .website }}"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="card-image hover:bg-gray-50 transition-colors relative"
+      >
+        <img
+          src="{{ .image | relURL }}"
+          alt="{{ .name }}"
+          width="150"
+          height="150"
+          class="object-contain"
+          loading="lazy"
+        >
+        <svg class="absolute top-3 right-3 h-4 w-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+        </svg>
+      </a>
+      <div class="card-content">
+        <h3 class="text-xl font-semibold mb-2">{{ .name }}</h3>
+        {{ with .description }}
+        <p class="text-muted-foreground mb-4">{{ . }}</p>
+        {{ end }}
+      </div>
+    </div>
+    {{ end }}
+  </div>
+</div>
+{{ end }}

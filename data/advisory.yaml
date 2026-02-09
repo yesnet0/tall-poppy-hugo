@@ -1,0 +1,53 @@
+- id: dreadnode
+  name: Dreadnode
+  description: Advancing the state of offensive security.
+  image: images/advisory/dreadnode.jpeg
+  website: https://dreadnode.io
+
+- id: run-reveal
+  name: runReveal
+  description: The way to query, use, and investigate security logs at scale.
+  image: images/advisory/runreveal.jpeg
+  website: https://runreveal.com
+
+- id: truffle-security
+  name: Truffle Security
+  description: Unearth your secrets.
+  image: images/advisory/trufflesecurity.jpeg
+  website: https://trufflesecurity.com
+
+- id: ghost-ai
+  name: Ghost Security
+  description: App Security. Built by Humans, for AI.
+  image: images/advisory/ghost-security.jpeg
+  website: https://ghost.security
+
+- id: corridor-dev
+  name: Corridor.dev
+  description: The AI-powered Secure by Design platform.
+  image: images/advisory/corridor.jpeg
+  website: https://corridor.dev
+
+- id: anetac
+  name: Anetac
+  description: Identity is the new perimeter.
+  image: images/advisory/anetac.jpeg
+  website: https://anetac.com
+
+- id: the-hacking-games
+  name: The Hacking Games
+  description: ""
+  image: images/advisory/the-hacking-games.png
+  website: https://thehackinggames.com
+
+- id: lastwall-networks
+  name: Lastwall Networks
+  description: ""
+  image: images/advisory/lastwall.png
+  website: https://lastwall.com
+
+- id: cadence
+  name: Cadence
+  description: ""
+  image: images/advisory/cadence.png
+  website: https://teamcadence.ai

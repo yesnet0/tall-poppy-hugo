@@ -1,0 +1,29 @@
+{{ define "main" }}
+<!-- Hero Section -->
+<section class="relative min-h-[80vh] flex items-center hero-bg">
+  <div class="container mx-auto px-4 py-20 md:py-32 flex flex-col md:flex-row items-center gap-12 z-10">
+    <div class="flex-1 space-y-6">
+      <h1 class="text-5xl md:text-6xl font-bold tracking-tight">Applied cybersecurity.</h1>
+      <p class="text-lg text-muted-foreground max-w-xl">
+        Tall Poppy Group builds, advises, and invests in cybersecurity companies at the cutting edge of
+        offensive research, threat intelligence, practitioner-led defense, and cybersecurity policy.
+      </p>
+      <a href="{{ "contact/" | relURL }}" class="btn btn-black mt-4 inline-flex">
+        <svg class="mr-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+        </svg>
+        Get in touch
+      </a>
+    </div>
+    <div class="flex-1 relative flex items-center justify-center">
+      <img
+        src="{{ "images/tpg_bg.png" | relURL }}"
+        alt="Red poppies - Tall Poppy Group"
+        width="500"
+        height="300"
+        class="object-contain"
+      >
+    </div>
+  </div>
+</section>
+{{ end }}

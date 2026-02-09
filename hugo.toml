@@ -1,0 +1,56 @@
+baseURL = 'https://example.github.io/tall-poppy-hugo/'
+languageCode = 'en-us'
+title = 'Tall Poppy Group :: Security | Technology | Policy | Startups'
+description = 'Startup skunkworks at the edge of cybersecurity, threat intelligence, and research innovation.'
+
+# For GitHub Pages
+relativeURLs = false
+uglyURLs = false
+
+[params]
+  email = "hello@tallpoppygroup.com"
+  linkedin = "https://linkedin.com/company/tallpoppygroup"
+  twitter = "https://twitter.com/tallpoppygroup"
+  ga_id = "G-2605TEZ3HS"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[menu]
+  [[menu.main]]
+    name = "About"
+    url = "/about/"
+    weight = 1
+  [[menu.main]]
+    name = "Portfolio"
+    url = "/portfolio/"
+    weight = 2
+    hasChildren = true
+  [[menu.main]]
+    name = "Contact"
+    url = "/contact/"
+    weight = 3
+
+  [[menu.portfolio]]
+    name = "Companies"
+    url = "/portfolio/"
+    weight = 1
+  [[menu.portfolio]]
+    name = "Investing and Advisory"
+    url = "/advisory/"
+    weight = 2
+
+[outputs]
+  home = ["HTML", "RSS"]
+  section = ["HTML"]
+  page = ["HTML"]
+
+[sitemap]
+  changefreq = "weekly"
+  priority = 0.5
+
+# Build settings
+[build]
+  writeStats = true

@@ -1,0 +1,89 @@
+<header class="bg-navbar text-white">
+  <div class="container mx-auto px-4 flex h-16 items-center justify-between">
+    <!-- Logo -->
+    <div class="flex items-center gap-2">
+      <a href="{{ "/" | relURL }}" class="flex items-center gap-2">
+        <img
+          src="{{ "images/tallpoppygroup_square.png" | relURL }}"
+          alt="Tall Poppy Group"
+          width="40"
+          height="40"
+          class="rounded-sm"
+        >
+        <span class="font-semibold text-xl">Tall Poppy Group</span>
+      </a>
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <div class="md:hidden">
+      <button
+        id="mobile-menu-toggle"
+        class="text-white hover:bg-red-700 p-2 rounded"
+        aria-label="Toggle menu"
+      >
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Desktop Navigation -->
+    <nav class="hidden md:flex items-center gap-6">
+      <a href="{{ "about/" | relURL }}" class="text-sm font-medium hover:text-gray-200 transition-colors">
+        About
+      </a>
+
+      <!-- Portfolio Dropdown -->
+      <div class="nav-item relative">
+        <button class="flex items-center gap-1 text-sm font-medium hover:text-gray-200 transition-colors">
+          Portfolio
+          <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+        <div class="nav-dropdown">
+          <a href="{{ "portfolio/" | relURL }}">Companies</a>
+          {{ range site.Data.companies }}
+          <a href="{{ print "portfolio/" .id "/" | relURL }}" class="indent">{{ .name }}</a>
+          {{ end }}
+          <div class="border-t my-2"></div>
+          <a href="{{ "advisory/" | relURL }}">Investing and Advisory</a>
+        </div>
+      </div>
+
+      <a href="{{ "contact/" | relURL }}" class="text-sm font-medium hover:text-gray-200 transition-colors">
+        Contact
+      </a>
+    </nav>
+  </div>
+</header>
+
+<!-- Mobile Menu Overlay -->
+<div id="mobile-menu-overlay" class="mobile-menu-overlay"></div>
+
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="mobile-menu">
+  <div class="p-4">
+    <button id="close-mobile-menu" class="float-right p-2" aria-label="Close menu">
+      <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+    <nav class="mt-12 flex flex-col gap-4">
+      <a href="{{ "about/" | relURL }}" class="text-lg font-medium">About</a>
+      <div class="space-y-2">
+        <p class="text-lg font-medium">Portfolio</p>
+        <div class="pl-4 space-y-2 mt-2">
+          <a href="{{ "portfolio/" | relURL }}" class="block text-base hover:underline">Companies</a>
+          <div class="pl-4 space-y-2 mt-2">
+            {{ range site.Data.companies }}
+            <a href="{{ print "portfolio/" .id "/" | relURL }}" class="block text-sm hover:underline">{{ .name }}</a>
+            {{ end }}
+          </div>
+          <a href="{{ "advisory/" | relURL }}" class="block text-base hover:underline">Investing and Advisory</a>
+        </div>
+      </div>
+      <a href="{{ "contact/" | relURL }}" class="text-lg font-medium">Contact</a>
+    </nav>
+  </div>
+</div>
