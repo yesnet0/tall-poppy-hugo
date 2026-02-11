@@ -1,7 +1,7 @@
 ---
 title: The disclose.io Project
-description: Safe harbor for security research.
-tagline: Safe harbor for security research.
+description: Normalize security research and vulnerability disclosure, and make it suck less.
+tagline: Normalize security research and vulnerability disclosure, and make it suck less.
 founded: 2018
 image: images/logos/disclose-io.jpeg
 website: https://disclose.io
