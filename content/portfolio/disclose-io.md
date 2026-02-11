@@ -1,7 +1,7 @@
 ---
 title: The disclose.io Project
-description: Normalize security research and vulnerability disclosure, and make it suck less.
-tagline: Normalize security research and vulnerability disclosure, and make it suck less.
+description: Defending the Internet's Immune System.
+tagline: Defending the Internet's Immune System.
 founded: 2018
 image: images/logos/disclose-io.jpeg
 website: https://disclose.io
