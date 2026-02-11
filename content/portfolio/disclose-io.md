@@ -1,7 +1,7 @@
 ---
 title: The disclose.io Project
-description: Defending the Internet's Immune System.
-tagline: Defending the Internet's Immune System.
+description: Open-source tools for a healthy Internet Immune System.
+tagline: Open-source tools for a healthy Internet Immune System.
 founded: 2018
 image: images/logos/disclose-io.jpeg
 website: https://disclose.io

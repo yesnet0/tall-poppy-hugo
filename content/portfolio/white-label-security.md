@@ -3,7 +3,7 @@ title: White Label Security
 description: The prototype for Bugcrowd.
 tagline: The prototype for Bugcrowd.
 years: "2010-2013"
-image: images/logos/white-label-security.jpeg
+image: images/logos/white-label-security.png
 layout: single
 ---
 
