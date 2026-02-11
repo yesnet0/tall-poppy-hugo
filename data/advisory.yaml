@@ -36,18 +36,18 @@
 
 - id: the-hacking-games
   name: The Hacking Games
-  description: ""
+  description: Matching unconventional problem-solvers with cybersecurity careers.
   image: images/advisory/the-hacking-games.png
   website: https://thehackinggames.com
 
 - id: lastwall-networks
   name: Lastwall Networks
-  description: ""
+  description: Secure identity management for defense and government.
   image: images/advisory/lastwall.png
   website: https://lastwall.com
 
 - id: cadence
   name: Cadence
-  description: ""
+  description: AI productivity tool for distributed teams.
   image: images/advisory/cadence.png
   website: https://teamcadence.ai
