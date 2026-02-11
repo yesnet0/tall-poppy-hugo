@@ -1,25 +1,27 @@
 ---
 title: White Label Security
-description: Secure more clients.
-tagline: Secure more clients.
-founded: 2010
+description: The prototype for Bugcrowd.
+tagline: The prototype for Bugcrowd.
+years: "2010-2013"
 image: images/logos/white-label-security.jpeg
-website: https://whitelabelsecurity.com
 layout: single
 ---
 
 ## About White Label Security
 
-Founded in 2010, White Label Security pioneered the concept of resellable security services for managed service providers (MSPs) and IT consultancies. The company developed a platform that allowed technology service providers to offer professional-grade security assessments, compliance services, and vulnerability management under their own brand, enabling smaller firms to compete with larger security consultancies.
+White Label Security (2010-2013) productized penetration testing and security assessments for the MSP channel. The thesis: most small IT shops couldn't afford to hire pentesters, but their clients needed security services. WLS provided a turnkey platform (branding, scoping tools, report templates, and a network of vetted testers) so MSPs could resell security under their own name.
 
-## Key Solutions
+The company proved the model worked. MSPs bought it, their clients valued it, and the security talent showed up. WLS was, in hindsight, an unwitting prototype for Bugcrowd.
 
-- White-labeled security assessment reports and templates
-- Compliance automation for PCI DSS, HIPAA, and other frameworks
-- Vulnerability scanning and management services
-- Security policy development tools
-- Client-facing security dashboards and portals
+## The Platform
 
-## Impact
+- Turnkey pentest-as-a-service platform for MSP resale
+- White-labeled reports, scoping questionnaires, and client portals
+- Contractor network management and quality control systems
+- PCI DSS and HIPAA compliance assessment workflows
 
-White Label Security transformed how small and mid-sized IT service providers delivered security services to their clients. By democratizing access to enterprise-grade security tools and methodologies, they enabled hundreds of service providers to add security offerings to their portfolios without significant investment in specialized expertise or infrastructure. This approach helped extend professional security services to thousands of small and medium businesses that previously had limited access to such resources.
+## The Bugcrowd Connection
+
+WLS validated two things that became foundational to Bugcrowd: enterprises would pay for outsourced security testing, and skilled researchers existed in abundance but were poorly connected to opportunities. The difference was scale. WLS coordinated testers top-down; Bugcrowd let researchers self-select into programs. Same insight, different execution. The crowdsourced model unlocked global scale.
+
+Bugcrowd launched the following year.
