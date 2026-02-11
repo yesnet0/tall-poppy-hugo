@@ -4,7 +4,6 @@ description: Safe harbor for security research.
 tagline: Safe harbor for security research.
 founded: 2018
 image: images/logos/disclose-io.jpeg
-websiteImage: images/disclose-io-website.jpeg
 website: https://disclose.io
 layout: single
 ---
