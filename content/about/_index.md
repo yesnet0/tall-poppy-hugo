@@ -24,6 +24,4 @@ Sometimes we find those founders and back them. Sometimes we build it ourselves.
 
 We're practitioners first. That shapes everything: what we choose to build, who we back, how we advise. We don't sit on the sidelines. We get in the weeds on product, strategy, and execution because we've done it ourselves.
 
-## Partners for the Long Run
-
 We measure success in years, not quarters. Whether we're building a company or backing one, we stay engaged through the hard parts and push for solutions that are both scalable and ethical. Defenders and policymakers face real risk. We build and invest in companies that help them win.
