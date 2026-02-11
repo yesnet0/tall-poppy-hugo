@@ -1,0 +1,11 @@
+name = "tpg-contact-form"
+main = "contact-form.js"
+compatibility_date = "2024-01-01"
+
+[vars]
+TO_EMAIL = "casey@tallpoppygroup.com"
+# FROM_EMAIL must be from a verified domain in Resend
+# Using default onboarding@resend.dev until tallpoppygroup.com is verified
+
+# Store RESEND_API_KEY as a secret:
+# wrangler secret put RESEND_API_KEY
