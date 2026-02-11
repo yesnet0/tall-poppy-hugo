@@ -14,11 +14,9 @@ Sometimes we find those founders and back them. Sometimes we build it ourselves.
 
 ## What We Do
 
-**Build:** We create companies and products where we see critical gaps in the market. When the right solution doesn't exist and we have the expertise to make it, we build it.
-
-**Back:** We invest in founders combining rigorous research with real-world operational experience. Teams working on adversary tradecraft, threat intelligence, defensive tooling, and security policy.
-
-**Advise:** We work hands-on with technical founders to translate depth into business clarity, helping with product development, go-to-market, talent, and the relationships that matter.
+- **Build:** We create companies and products where we see critical gaps in the market. When the right solution doesn't exist and we have the expertise to make it, we build it.
+- **Back:** We invest in founders combining rigorous research with real-world operational experience. Teams working on adversary tradecraft, threat intelligence, defensive tooling, and security policy.
+- **Advise:** We work hands-on with technical founders to translate depth into business clarity, helping with product development, go-to-market, talent, and the relationships that matter.
 
 ## How We Work
 
