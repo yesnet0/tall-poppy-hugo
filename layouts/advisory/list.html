@@ -1,40 +1,40 @@
 {{ define "main" }}
 <div class="container mx-auto px-4 py-12">
-  <h1 class="text-4xl font-bold mb-12">Investing and Advisory</h1>
+  <div class="mb-12 max-w-3xl">
+    <h1 class="text-4xl md:text-5xl font-bold mb-4">Investing &amp; Advisory</h1>
+    <p class="text-lg text-muted-foreground">
+      Investment capital and strategic advisory to founders building the next generation of security and AI.
+    </p>
+  </div>
 
-  <p class="text-lg mb-8">
-    Tall Poppy Group provides investment capital and strategic advisory services to a select group of innovative
-    cybersecurity companies. We partner with founders who are building the next generation of security and AI solutions.
-  </p>
-
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
     {{ range site.Data.advisory }}
-    <div class="card">
-      <a
-        href="{{ .website }}"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="card-image hover:bg-gray-50 transition-colors relative"
-      >
+    <a
+      href="{{ .website }}"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="flex items-center gap-4 border rounded-lg p-4 hover:shadow-md hover:border-red-200 transition-all duration-200 group"
+    >
+      <div class="w-14 h-14 bg-gray-50 border rounded-lg flex items-center justify-center p-2 shrink-0 group-hover:bg-white transition-colors">
         <img
           src="{{ .image | relURL }}"
           alt="{{ .name }}"
-          width="150"
-          height="150"
+          width="48"
+          height="48"
           class="object-contain"
           loading="lazy"
         >
-        <svg class="absolute top-3 right-3 h-4 w-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-        </svg>
-      </a>
-      <div class="card-content">
-        <h3 class="text-xl font-semibold mb-2">{{ .name }}</h3>
+      </div>
+      <div class="flex-1 min-w-0">
+        <h3 class="text-sm font-semibold group-hover:text-red-600 transition-colors">{{ .name }}</h3>
         {{ with .description }}
-        <p class="text-muted-foreground mb-4">{{ . }}</p>
+        <p class="text-xs text-muted-foreground truncate">{{ . }}</p>
         {{ end }}
       </div>
-    </div>
+      <svg class="h-4 w-4 text-gray-300 group-hover:text-red-500 transition-colors shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+      </svg>
+    </a>
     {{ end }}
   </div>
 </div>

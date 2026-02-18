@@ -10,56 +10,65 @@
   </div>
 
   <!-- ═══════════════════════════════════════ -->
-  <!-- COMPANIES (Founded)                     -->
+  <!-- COMPANIES (Accordion)                   -->
   <!-- ═══════════════════════════════════════ -->
-  <div class="space-y-8 mb-16">
-    {{ range site.Data.companies }}
+  <div class="border rounded-lg divide-y mb-16">
+    {{ range $i, $company := site.Data.companies }}
     {{ $page := site.GetPage (printf "/portfolio/%s" .id) }}
-    <article id="{{ .id }}" class="scroll-mt-24 border rounded-lg overflow-hidden">
-      <!-- Company Header Bar -->
-      <div class="bg-gray-50 border-b px-6 py-6 md:px-8 md:py-8">
-        <div class="flex flex-col sm:flex-row items-start gap-5">
-          <div class="w-20 h-20 bg-white border rounded-lg flex items-center justify-center p-3 shrink-0">
-            <img
-              src="{{ .image | relURL }}"
-              alt="{{ .name }}"
-              width="64"
-              height="64"
-              class="object-contain"
-              loading="lazy"
-            >
-          </div>
-          <div class="flex-1">
-            <div class="flex flex-wrap items-center gap-3 mb-1">
-              <h2 class="text-2xl font-bold">{{ .name }}</h2>
-              <span class="text-xs font-medium bg-red-600 text-white px-2 py-0.5 rounded-full">Founded</span>
-            </div>
-            {{ with .founded }}
-            <p class="text-sm text-muted-foreground mb-1">Est. {{ . }}</p>
-            {{ end }}
-            {{ with $page }}{{ with .Params.years }}
-            <p class="text-sm text-muted-foreground mb-1">{{ . }}</p>
-            {{ end }}{{ end }}
-            <p class="text-muted-foreground">{{ .description }}</p>
-          </div>
-          <a href="{{ .website }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary text-sm shrink-0 mt-2 sm:mt-0">
-            Visit site
-            <svg class="ml-2 h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-            </svg>
-          </a>
+    <div class="accordion-item" data-accordion>
+      <!-- Accordion Header (always visible) -->
+      <button
+        class="w-full px-6 py-5 md:px-8 md:py-6 flex items-center gap-5 text-left hover:bg-gray-50 transition-colors"
+        onclick="toggleAccordion(this)"
+        aria-expanded="false"
+      >
+        <div class="w-20 h-20 bg-gray-50 border rounded-lg flex items-center justify-center p-2 shrink-0">
+          <img
+            src="{{ .image | relURL }}"
+            alt="{{ .name }}"
+            width="72"
+            height="72"
+            class="object-contain"
+            loading="lazy"
+          >
         </div>
-      </div>
+        <div class="flex-1 min-w-0">
+          <div class="flex flex-wrap items-center gap-3 mb-0.5">
+            <h2 class="text-xl font-bold">{{ .name }}</h2>
+            <span class="text-xs font-medium bg-red-600 text-white px-2 py-0.5 rounded-full">Founded</span>
+          </div>
+          <p class="text-sm text-muted-foreground">{{ .description }}</p>
+        </div>
+        <!-- Chevron -->
+        <svg class="accordion-chevron h-5 w-5 text-gray-400 shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </button>
 
-      <!-- Company Content (collapsible) -->
-      {{ with $page }}
-      <div class="px-6 py-6 md:px-8 md:py-8">
-        <div class="prose max-w-none">
-          {{ .Content }}
+      <!-- Accordion Content (hidden by default) -->
+      <div class="accordion-content" style="display: none;">
+        <div class="px-6 pb-6 md:px-8 md:pb-8">
+          <div class="flex flex-wrap items-center gap-4 mb-6 pl-0 md:pl-[6.25rem]">
+            {{ if and $page $page.Params.years }}
+            <span class="text-sm text-muted-foreground">{{ $page.Params.years }}</span>
+            {{ else }}{{ with $company.founded }}
+            <span class="text-sm text-muted-foreground">Est. {{ . }}</span>
+            {{ end }}{{ end }}
+            <a href="{{ .website }}" target="_blank" rel="noopener noreferrer" class="btn border border-red-600 text-red-600 hover:bg-red-600 hover:text-white h-9 py-1.5 px-4 text-sm">
+              Visit site
+              <svg class="ml-2 h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+              </svg>
+            </a>
+          </div>
+          {{ with $page }}
+          <div class="prose max-w-none pl-0 md:pl-[6.25rem]">
+            {{ .Content }}
+          </div>
+          {{ end }}
         </div>
       </div>
-      {{ end }}
-    </article>
+    </div>
     {{ end }}
   </div>
 
@@ -105,4 +114,34 @@
   </div>
 
 </div>
+
+<!-- Accordion Script -->
+<script>
+function toggleAccordion(btn) {
+  const item = btn.closest('[data-accordion]');
+  const content = item.querySelector('.accordion-content');
+  const chevron = btn.querySelector('.accordion-chevron');
+  const isOpen = btn.getAttribute('aria-expanded') === 'true';
+
+  if (isOpen) {
+    content.style.maxHeight = content.scrollHeight + 'px';
+    requestAnimationFrame(() => {
+      content.style.maxHeight = '0px';
+    });
+    setTimeout(() => { content.style.display = 'none'; content.style.maxHeight = ''; }, 200);
+    btn.setAttribute('aria-expanded', 'false');
+    chevron.style.transform = 'rotate(0deg)';
+  } else {
+    content.style.display = 'block';
+    content.style.maxHeight = '0px';
+    content.style.overflow = 'hidden';
+    requestAnimationFrame(() => {
+      content.style.maxHeight = content.scrollHeight + 'px';
+    });
+    setTimeout(() => { content.style.maxHeight = ''; content.style.overflow = ''; }, 200);
+    btn.setAttribute('aria-expanded', 'true');
+    chevron.style.transform = 'rotate(180deg)';
+  }
+}
+</script>
 {{ end }}

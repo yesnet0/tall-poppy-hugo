@@ -49,10 +49,10 @@ module.exports = {
           foreground: "hsl(var(--card-foreground))",
         },
         red: {
-          600: "#A53833",
-          700: "#8a2f2b",
+          600: "#B72127",
+          700: "#9C1C21",
         },
-        navbar: "#A53833",
+        navbar: "#B72127",
       },
       borderRadius: {
         lg: "var(--radius)",
