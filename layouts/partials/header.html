@@ -33,21 +33,25 @@
         About
       </a>
 
-      <!-- Portfolio Dropdown -->
-      <div class="nav-item relative">
-        <a href="{{ "portfolio/" | relURL }}" class="flex items-center gap-1 text-sm font-medium hover:text-gray-200 transition-colors">
+      <!-- Portfolio Link + Dropdown -->
+      <div class="flex items-center gap-0">
+        <a href="{{ "portfolio/" | relURL }}" class="text-sm font-medium hover:text-gray-200 transition-colors">
           Portfolio
-          <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-          </svg>
         </a>
-        <div class="nav-dropdown">
-          <a href="{{ "portfolio/" | relURL }}">Companies</a>
-          {{ range site.Data.companies }}
-          <a href="{{ print "portfolio/" .id "/" | relURL }}" class="indent">{{ .name }}</a>
-          {{ end }}
-          <div class="border-t my-2"></div>
-          <a href="{{ "advisory/" | relURL }}">Investing and Advisory</a>
+        <div class="nav-item relative">
+          <button class="p-1 hover:text-gray-200 transition-colors" aria-label="Portfolio menu">
+            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div class="nav-dropdown">
+            <a href="{{ "portfolio/" | relURL }}">Companies</a>
+            {{ range site.Data.companies }}
+            <a href="{{ print "portfolio/" .id "/" | relURL }}" class="indent">{{ .name }}</a>
+            {{ end }}
+            <div class="border-t my-2"></div>
+            <a href="{{ "advisory/" | relURL }}">Investing and Advisory</a>
+          </div>
         </div>
       </div>
 
