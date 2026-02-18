@@ -47,10 +47,10 @@
 /* Geometric background pattern for hero (fallback) */
 .hero-bg {
   background-image:
-    linear-gradient(135deg, rgba(220, 38, 38, 0.03) 25%, transparent 25%),
-    linear-gradient(225deg, rgba(220, 38, 38, 0.03) 25%, transparent 25%),
-    linear-gradient(45deg, rgba(220, 38, 38, 0.03) 25%, transparent 25%),
-    linear-gradient(315deg, rgba(220, 38, 38, 0.03) 25%, transparent 25%);
+    linear-gradient(135deg, rgba(165, 56, 51, 0.03) 25%, transparent 25%),
+    linear-gradient(225deg, rgba(165, 56, 51, 0.03) 25%, transparent 25%),
+    linear-gradient(45deg, rgba(165, 56, 51, 0.03) 25%, transparent 25%),
+    linear-gradient(315deg, rgba(165, 56, 51, 0.03) 25%, transparent 25%);
   background-size: 100px 100px;
   background-position: 0 0, 50px 0, 50px -50px, 0 50px;
 }

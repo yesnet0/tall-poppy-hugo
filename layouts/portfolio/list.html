@@ -1,34 +1,120 @@
 {{ define "main" }}
 <div class="container mx-auto px-4 py-12">
-  <h1 class="text-4xl font-bold mb-12">Companies</h1>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-    {{ range site.Data.companies }}
-    <div class="card">
-      <a href="{{ print "portfolio/" .id "/" | relURL }}" class="card-image">
-        <img
-          src="{{ .image | relURL }}"
-          alt="{{ .name }}"
-          width="150"
-          height="150"
-          class="object-contain"
-          loading="lazy"
-        >
-      </a>
-      <div class="card-content">
-        <h3 class="text-xl font-semibold mb-2">{{ .name }}</h3>
-        <p class="text-muted-foreground mb-4">{{ .description }}</p>
-        <div>
-          <a href="{{ .website }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-            Visit site
-            <svg class="ml-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-            </svg>
-          </a>
+  <!-- Page Header -->
+  <div class="mb-16">
+    <h1 class="text-4xl md:text-5xl font-bold mb-4">Portfolio</h1>
+    <p class="text-lg text-muted-foreground max-w-2xl">
+      Companies we've built, invested in, and advise — all working at the cutting edge of cybersecurity.
+    </p>
+  </div>
+
+  <!-- Section Nav (sticky jump links) -->
+  <div class="flex gap-4 mb-12 border-b pb-4 sticky top-16 bg-white z-10">
+    <a href="#companies" class="text-sm font-semibold text-red-600 hover:text-red-700 transition-colors">
+      Companies
+    </a>
+    <span class="text-gray-300">|</span>
+    <a href="#advisory" class="text-sm font-semibold text-red-600 hover:text-red-700 transition-colors">
+      Investing &amp; Advisory
+    </a>
+  </div>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- COMPANIES SECTION                       -->
+  <!-- ═══════════════════════════════════════ -->
+  <section id="companies" class="mb-20 scroll-mt-32">
+    <div class="flex items-center gap-3 mb-8">
+      <div class="h-8 w-1 bg-red-600 rounded-full"></div>
+      <h2 class="text-3xl font-bold">Companies</h2>
+    </div>
+    <p class="text-muted-foreground mb-8 max-w-2xl">
+      Companies founded and built by Tall Poppy Group.
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {{ range site.Data.companies }}
+      <div class="card group">
+        <a href="{{ print "portfolio/" .id "/" | relURL }}" class="card-image group-hover:bg-gray-50 transition-colors">
+          <img
+            src="{{ .image | relURL }}"
+            alt="{{ .name }}"
+            width="150"
+            height="150"
+            class="object-contain"
+            loading="lazy"
+          >
+        </a>
+        <div class="card-content">
+          <h3 class="text-xl font-semibold mb-1">{{ .name }}</h3>
+          {{ with .founded }}
+          <p class="text-xs text-muted-foreground mb-2">Founded {{ . }}</p>
+          {{ end }}
+          <p class="text-muted-foreground mb-4">{{ .description }}</p>
+          <div class="flex gap-3">
+            <a href="{{ print "portfolio/" .id "/" | relURL }}" class="btn btn-primary text-sm">
+              Read more
+            </a>
+            <a href="{{ .website }}" target="_blank" rel="noopener noreferrer" class="btn btn-ghost text-sm">
+              Visit site
+              <svg class="ml-1 h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+              </svg>
+            </a>
+          </div>
         </div>
       </div>
+      {{ end }}
     </div>
-    {{ end }}
-  </div>
+  </section>
+
+  <!-- Divider -->
+  <div class="border-t border-gray-200 mb-20"></div>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- ADVISORY SECTION                        -->
+  <!-- ═══════════════════════════════════════ -->
+  <section id="advisory" class="scroll-mt-32">
+    <div class="flex items-center gap-3 mb-8">
+      <div class="h-8 w-1 bg-red-600 rounded-full"></div>
+      <h2 class="text-3xl font-bold">Investing &amp; Advisory</h2>
+    </div>
+    <p class="text-muted-foreground mb-8 max-w-2xl">
+      Tall Poppy Group provides investment capital and strategic advisory services to a select group of innovative
+      cybersecurity companies. We partner with founders who are building the next generation of security and AI solutions.
+    </p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {{ range site.Data.advisory }}
+      <a
+        href="{{ .website }}"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="card group hover:shadow-lg transition-all duration-200"
+      >
+        <div class="card-image group-hover:bg-gray-50 transition-colors relative">
+          <img
+            src="{{ .image | relURL }}"
+            alt="{{ .name }}"
+            width="150"
+            height="150"
+            class="object-contain"
+            loading="lazy"
+          >
+          <svg class="absolute top-3 right-3 h-4 w-4 text-gray-300 group-hover:text-red-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+          </svg>
+        </div>
+        <div class="card-content">
+          <h3 class="text-lg font-semibold mb-1 group-hover:text-red-600 transition-colors">{{ .name }}</h3>
+          {{ with .description }}
+          <p class="text-sm text-muted-foreground">{{ . }}</p>
+          {{ end }}
+        </div>
+      </a>
+      {{ end }}
+    </div>
+  </section>
+
 </div>
 {{ end }}
