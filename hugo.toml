@@ -8,6 +8,7 @@ relativeURLs = false
 uglyURLs = false
 
 [params]
+  description = "Tall Poppy Group provides applied cybersecurity advisory services — CISO-as-a-service, security program design, M&A due diligence, and portfolio company security."
   email = "hello@tallpoppygroup.com"
   linkedin = "https://linkedin.com/company/tallpoppygroup"
   twitter = "https://twitter.com/tallpoppygroup"
