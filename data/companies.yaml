@@ -1,5 +1,11 @@
+# Portfolio companies — id/name/image/website/founded preserved from live;
+# kicker/role/tagline added for the design-system card layout. Taglines mirror
+# each company's content front matter (factual).
 - id: white-label-security
   name: White Label Security
+  kicker: Services
+  role: Founded
+  tagline: The prototype for Bugcrowd.
   description: Secure more clients.
   image: images/logos/white-label-security.jpeg
   website: https://whitelabelsecurity.com
@@ -7,6 +13,9 @@
 
 - id: bugcrowd
   name: Bugcrowd
+  kicker: Crowdsourced security
+  role: Founded
+  tagline: Crowdsourced security at global scale.
   description: The pioneers of crowdsourced cybersecurity.
   image: images/logos/bugcrowd.png
   website: https://www.bugcrowd.com
@@ -14,6 +23,9 @@
 
 - id: disclose-io
   name: The Disclose.io Project
+  kicker: Open standard
+  role: Founded
+  tagline: Open-source tools for a healthy Internet Immune System.
   description: We're here to make vulnerability disclosure safe, simple, and standardized for everyone.
   image: images/logos/disclose-io.jpeg
   website: https://disclose.io

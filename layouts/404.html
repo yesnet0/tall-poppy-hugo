@@ -1,10 +1,8 @@
 {{ define "main" }}
-<div class="container mx-auto px-4 py-20 text-center">
-  <h1 class="text-6xl font-bold mb-4">404</h1>
-  <p class="text-xl text-muted-foreground mb-8">Page not found</p>
-  <p class="mb-8">The page you're looking for doesn't exist or has been moved.</p>
-  <a href="{{ "/" | relURL }}" class="btn btn-primary">
-    Back to Home
-  </a>
-</div>
+<section class="tp-shell" style="text-align:center;">
+  <div class="tp-kicker" style="display:inline-block;">Error 404</div>
+  <h1 class="tp-shell__title">Page not found.</h1>
+  <p class="tp-shell__lead" style="margin:0 auto 28px;">The page you're looking for doesn't exist or has been moved.</p>
+  <a href="{{ "/" | relURL }}" class="tp-btn tp-btn--primary tp-btn--lg">Back home</a>
+</section>
 {{ end }}

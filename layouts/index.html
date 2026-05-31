@@ -1,94 +1,48 @@
 {{ define "main" }}
-<!-- Hero Section -->
-<section class="relative min-h-[80vh] flex items-center">
-  <!-- Particles Background -->
-  <div id="tsparticles" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;"></div>
+<!-- Hero -->
+<section class="tp-hero">
+  <div class="tp-wrap tp-hero__inner">
+    <div class="tp-kicker">Startup skunkworks</div>
+    <h1 class="tp-hero__title">Applied<br>cybersecurity.</h1>
+    <p class="tp-hero__dek">
+      Tall Poppy Group builds, advises, and invests in cybersecurity companies at the
+      cutting edge of offensive research, threat intelligence, practitioner-led defense,
+      and cybersecurity policy.
+    </p>
+    <div class="tp-hero__actions">
+      <a href="{{ "contact/" | relURL }}" class="tp-btn tp-btn--primary tp-btn--lg">Get in touch</a>
+      <a href="{{ "portfolio/" | relURL }}" class="tp-btn tp-btn--outline tp-btn--lg">See the portfolio</a>
+    </div>
+  </div>
+  <img src="{{ "images/tpg_bg.png" | relURL }}" alt="Red poppy" class="tp-hero__poppy">
+</section>
 
-  <div class="container mx-auto px-4 py-20 md:py-32 flex flex-col md:flex-row items-center gap-12 z-10">
-    <div class="flex-1 space-y-6">
-      <h1 class="text-5xl md:text-6xl font-bold tracking-tight">Applied cybersecurity.</h1>
-      <p class="text-lg text-muted-foreground max-w-xl">
-        Tall Poppy Group builds, advises, and invests in cybersecurity companies at the cutting edge of
-        offensive research, threat intelligence, practitioner-led defense, and cybersecurity policy.
-      </p>
-      <a href="{{ "contact/" | relURL }}" class="btn btn-black mt-4 inline-flex">
-        <svg class="mr-2 h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-          <path d="m22 2-7 20-4-9-9-4Z"/>
-          <path d="M22 2 11 13"/>
-        </svg>
-        Get in touch
-      </a>
-    </div>
-    <div class="flex-1 relative flex items-center justify-center">
-      <img
-        src="{{ "images/tpg_bg.png" | relURL }}"
-        alt="Red poppies - Tall Poppy Group"
-        width="500"
-        height="300"
-        class="object-contain"
-      >
-    </div>
+<!-- Portfolio teaser -->
+<section class="tp-section">
+  <div class="tp-kicker">Portfolio</div>
+  <h2 class="tp-section__title">Companies built, founded, and backed.</h2>
+  <div class="tp-grid-3">
+    {{ range site.Data.companies }}
+    <a href="{{ print "portfolio/" .id "/" | relURL }}" class="tp-card">
+      <span class="tp-card__badge">{{ .role }}</span>
+      <div class="tp-card__kicker">{{ .kicker }}</div>
+      <h3 class="tp-card__title">{{ .name }}</h3>
+      <p class="tp-card__tagline">{{ .tagline | default .description }}</p>
+      <span class="tp-card__more">Learn more →</span>
+    </a>
+    {{ end }}
   </div>
 </section>
 
-<!-- Particles.js (simpler vanilla JS library) -->
-<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  particlesJS('tsparticles', {
-    particles: {
-      number: {
-        value: 60,
-        density: {
-          enable: true,
-          value_area: 800
-        }
-      },
-      color: {
-        value: "#A53833"
-      },
-      shape: {
-        type: "circle"
-      },
-      opacity: {
-        value: 0.3,
-        random: false
-      },
-      size: {
-        value: 3,
-        random: true
-      },
-      line_linked: {
-        enable: true,
-        distance: 150,
-        color: "#cccccc",
-        opacity: 0.2,
-        width: 1
-      },
-      move: {
-        enable: true,
-        speed: 0.5,
-        direction: "none",
-        random: true,
-        straight: false,
-        out_mode: "bounce",
-        bounce: false
-      }
-    },
-    interactivity: {
-      detect_on: "canvas",
-      events: {
-        onhover: {
-          enable: false
-        },
-        onclick: {
-          enable: false
-        },
-        resize: true
-      }
-    },
-    retina_detect: true
-  });
-});
-</script>
+<!-- Investing & Advisory CTA band -->
+<section class="tp-band">
+  <div class="tp-wrap tp-band__inner">
+    <div class="tp-band__copy">
+      <div class="tp-band__kicker">Investing &amp; Advisory</div>
+      <h2 class="tp-band__title">Operator-led capital and counsel for security founders.</h2>
+      <p class="tp-band__text">Early-stage investment and hands-on advisory from people who have built the category — not just funded it.</p>
+    </div>
+    <a href="{{ "advisory/" | relURL }}" class="tp-btn tp-btn--primary tp-btn--lg">Pitch us</a>
+  </div>
+</section>
 {{ end }}

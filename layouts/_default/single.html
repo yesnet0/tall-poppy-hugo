@@ -1,8 +1,9 @@
 {{ define "main" }}
-<div class="container mx-auto px-4 py-12 max-w-4xl">
-  <h1 class="text-4xl font-bold mb-8">{{ .Title }}</h1>
+<section class="tp-shell">
+  {{ with .Params.kicker }}<div class="tp-kicker">{{ . }}</div>{{ end }}
+  <h1 class="tp-shell__title">{{ .Title }}</h1>
   <div class="prose">
     {{ .Content }}
   </div>
-</div>
+</section>
 {{ end }}

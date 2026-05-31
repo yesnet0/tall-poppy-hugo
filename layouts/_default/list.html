@@ -1,23 +1,18 @@
 {{ define "main" }}
-<div class="container mx-auto px-4 py-12">
-  <h1 class="text-4xl font-bold mb-12">{{ .Title }}</h1>
-  {{ .Content }}
+<section class="tp-shell" style="max-width:1120px;">
+  <h1 class="tp-shell__title">{{ .Title }}</h1>
+  {{ with .Content }}<div class="prose">{{ . }}</div>{{ end }}
 
   {{ if .Pages }}
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+  <div class="tp-grid-3" style="margin-top:40px;">
     {{ range .Pages }}
-    <div class="card">
-      <div class="card-content">
-        <h3 class="text-xl font-semibold mb-2">
-          <a href="{{ .Permalink }}">{{ .Title }}</a>
-        </h3>
-        {{ with .Description }}
-        <p class="text-muted-foreground">{{ . }}</p>
-        {{ end }}
-      </div>
-    </div>
+    <a href="{{ .Permalink }}" class="tp-card">
+      <h3 class="tp-card__title" style="font-size:20px;">{{ .Title }}</h3>
+      {{ with .Description }}<p class="tp-card__tagline" style="margin-bottom:0;">{{ . }}</p>{{ end }}
+      <span class="tp-card__more">Read more →</span>
+    </a>
     {{ end }}
   </div>
   {{ end }}
-</div>
+</section>
 {{ end }}

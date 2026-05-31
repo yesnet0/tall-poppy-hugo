@@ -1,41 +1,28 @@
 {{ define "main" }}
-<div class="container mx-auto px-4 py-12">
-  <div class="mb-12 max-w-3xl">
-    <h1 class="text-4xl md:text-5xl font-bold mb-4">Investing &amp; Advisory</h1>
-    <p class="text-lg text-muted-foreground">
-      Investment capital and strategic advisory to founders building the next generation of security and AI.
-    </p>
-  </div>
+<section class="tp-shell" style="max-width:1120px;">
+  <div class="tp-kicker">Investing &amp; Advisory</div>
+  <h1 class="tp-shell__title">Operator-led, founder-friendly.</h1>
+  <p class="tp-shell__lead">
+    Tall Poppy Group provides investment capital and hands-on advisory to a select group of
+    cybersecurity companies — backing founders the way we wish we'd been backed: close to the
+    work, allergic to theater.
+  </p>
 
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+  <div class="tp-grid-3" style="margin-top:48px;">
     {{ range site.Data.advisory }}
-    <a
-      href="{{ .website }}"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="flex items-center gap-4 border rounded-lg p-4 hover:shadow-md hover:border-red-200 transition-all duration-200 group"
-    >
-      <div class="w-14 h-14 bg-gray-50 border rounded-lg flex items-center justify-center p-2 shrink-0 group-hover:bg-white transition-colors">
-        <img
-          src="{{ .image | relURL }}"
-          alt="{{ .name }}"
-          width="48"
-          height="48"
-          class="object-contain"
-          loading="lazy"
-        >
+    <a href="{{ .website }}" target="_blank" rel="noopener noreferrer" class="tp-card tp-card--logo">
+      <div class="tp-card__logo-frame">
+        <img src="{{ .image | relURL }}" alt="{{ .name }}" loading="lazy">
+        <svg class="tp-card__ext" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+        </svg>
       </div>
-      <div class="flex-1 min-w-0">
-        <h3 class="text-sm font-semibold group-hover:text-red-600 transition-colors">{{ .name }}</h3>
-        {{ with .description }}
-        <p class="text-xs text-muted-foreground truncate">{{ . }}</p>
-        {{ end }}
+      <div class="tp-card__body">
+        <h3 class="tp-card__title" style="font-size:20px;">{{ .name }}</h3>
+        {{ with .description }}<p class="tp-card__tagline" style="margin-bottom:0;">{{ . }}</p>{{ end }}
       </div>
-      <svg class="h-4 w-4 text-gray-300 group-hover:text-red-500 transition-colors shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-      </svg>
     </a>
     {{ end }}
   </div>
-</div>
+</section>
 {{ end }}

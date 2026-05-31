@@ -1,0 +1,224 @@
+/* ============================================================================
+   CJE / TALL POPPY GROUP — COLOR & TYPE FOUNDATIONS
+   ----------------------------------------------------------------------------
+   One system, two sibling brands:
+     • CJE (caseyjohnellis / cje.io) — editorial, hacker-culture, opinionated.
+     • Tall Poppy Group — applied cybersecurity, red-poppy motif, more composed.
+
+   FONTS: cje.io's real faces, confirmed from the live theme — Noto Sans
+   (headings + body, fallback Inter → system), EB Garamond (serif), JetBrains
+   Mono (mono/code). Loaded from Google Fonts.
+   NOTE: the "Release the Hounds" Keynote's own fonts are still unconfirmed;
+   the slide templates use this same brand stack for consistency.
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  /* ---- TYPE FAMILIES --------------------------------------------------- */
+  /* cje.io uses Noto Sans for BOTH headings and body; display = heavier weight,
+     tighter tracking for hierarchy. Fallback Inter, then system sans. */
+  --font-display: 'Noto Sans', 'Inter', -apple-system, system-ui, sans-serif; /* headlines */
+  --font-sans:    'Noto Sans', 'Inter', -apple-system, system-ui, sans-serif; /* UI + body */
+  --font-mono:    'JetBrains Mono', ui-monospace, 'SF Mono', monospace;       /* tags, code, #thoughtops, labels */
+  --font-serif:   'EB Garamond', Georgia, serif;                              /* long-form reading */
+
+  /* ---- WARM NEUTRAL RAMP (ink → paper) --------------------------------- */
+  --n-950: #14110D;  /* deepest ink — dark sections */
+  --n-900: #1F1B16;
+  --n-800: #322C24;
+  --n-700: #4E463A;
+  --n-600: #6E6557;
+  --n-500: #928876;
+  --n-400: #B6AD9C;
+  --n-300: #D6CEC0;
+  --n-200: #E7E1D6;
+  --n-100: #F2EDE4;
+  --n-50:  #FAF7F1;  /* paper */
+  --white: #FFFFFF;
+
+  /* ---- POPPY RED (primary accent) -------------------------------------- */
+  /* Base #B5202A sampled from the live tallpoppygroup.com mark. */
+  --poppy-50:  #FBEAEA;
+  --poppy-100: #F2C9C9;
+  --poppy-300: #DD6F70;
+  --poppy-500: #B5202A;  /* base — Tall Poppy brand crimson */
+  --poppy-600: #9A1B23;
+  --poppy-700: #7C151C;
+  --poppy-900: #4E0D11;
+
+  /* ---- STEM (muted field green — secondary, use sparingly) ------------- */
+  --stem-500: #4A5A33;
+  --stem-700: #33401F;
+
+  /* ---- SIGNAL (status, used in UI kits only) --------------------------- */
+  --signal-amber: #C8881C;
+  --signal-info:  #2F6E8F;
+
+  /* ---- SEMANTIC: SURFACES --------------------------------------------- */
+  --bg:           var(--n-50);
+  --bg-elevated:  var(--white);
+  --bg-sunken:    var(--n-100);
+  --bg-ink:       var(--n-950);   /* inverted / dark sections */
+  --bg-accent:    var(--poppy-500);
+
+  /* ---- SEMANTIC: TEXT -------------------------------------------------- */
+  --fg:         var(--n-950);
+  --fg-muted:   var(--n-600);
+  --fg-subtle:  var(--n-500);
+  --fg-on-ink:  var(--n-50);
+  --fg-on-ink-muted: var(--n-400);
+  --fg-accent:  var(--poppy-600);
+  --fg-link:    var(--poppy-600);
+
+  /* ---- SEMANTIC: BORDERS ---------------------------------------------- */
+  --border:        var(--n-200);
+  --border-strong: var(--n-400);
+  --border-ink:    var(--n-950);
+
+  /* ---- RADII ----------------------------------------------------------- */
+  --radius-none: 0px;
+  --radius-sm:   2px;
+  --radius-md:   4px;
+  --radius-lg:   8px;
+  --radius-xl:   14px;
+  --radius-pill: 999px;
+
+  /* ---- SPACING (4px base) --------------------------------------------- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 128px;
+
+  /* ---- ELEVATION (low, editorial; shadows are warm-tinted) ------------ */
+  --shadow-sm:  0 1px 2px rgba(20,17,13,0.06);
+  --shadow-md:  0 4px 14px rgba(20,17,13,0.08);
+  --shadow-lg:  0 18px 48px rgba(20,17,13,0.14);
+  --ring-accent: 0 0 0 3px rgba(181,32,42,0.25);
+
+  /* ---- TYPE SCALE (px) ------------------------------------------------- */
+  --text-display-xl: 72px;
+  --text-display:    56px;
+  --text-h1:         40px;
+  --text-h2:         30px;
+  --text-h3:         23px;
+  --text-h4:         19px;
+  --text-body-lg:    19px;
+  --text-body:       17px;
+  --text-small:      15px;
+  --text-caption:    13px;
+
+  --lh-tight: 1.05;
+  --lh-snug:  1.2;
+  --lh-text:  1.6;
+
+  --track-tight: -0.02em;
+  --track-label: 0.14em;
+}
+
+/* ============================================================================
+   SEMANTIC TYPE CLASSES
+   ========================================================================== */
+.display-xl {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--text-display-xl);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--track-tight);
+  color: var(--fg);
+}
+.display {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--text-display);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--track-tight);
+  color: var(--fg);
+}
+h1, .h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--text-h1);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--track-tight);
+  color: var(--fg);
+}
+h2, .h2 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--text-h2);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--track-tight);
+  color: var(--fg);
+}
+h3, .h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--text-h3);
+  line-height: 1.25;
+  color: var(--fg);
+}
+h4, .h4 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: var(--text-h4);
+  line-height: 1.3;
+  color: var(--fg);
+}
+p, .body {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: var(--text-body);
+  line-height: var(--lh-text);
+  color: var(--fg);
+}
+.body-lg {
+  font-family: var(--font-sans);
+  font-size: var(--text-body-lg);
+  line-height: var(--lh-text);
+  color: var(--fg);
+}
+/* Long-form blog reading uses the serif */
+.prose {
+  font-family: var(--font-serif);
+  font-size: var(--text-body-lg);
+  line-height: 1.7;
+  color: var(--n-900);
+}
+.small  { font-family: var(--font-sans); font-size: var(--text-small); line-height: 1.5; color: var(--fg-muted); }
+.caption{ font-family: var(--font-sans); font-size: var(--text-caption); line-height: 1.45; color: var(--fg-subtle); }
+
+/* Monospace label — the hacker-culture signature (tags, kickers, metadata) */
+.mono-label {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: var(--text-caption);
+  letter-spacing: var(--track-label);
+  text-transform: uppercase;
+  color: var(--fg-muted);
+}
+/* Hashtag / coined-term token (#slopdemic, #thoughtops) */
+.tag {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 0.9em;
+  color: var(--poppy-600);
+}
+code, .code {
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  background: var(--n-100);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.08em 0.36em;
+  color: var(--n-900);
+}
+
+a, .link { color: var(--fg-link); text-decoration: underline; text-underline-offset: 2px; }
+a:hover  { color: var(--poppy-700); }

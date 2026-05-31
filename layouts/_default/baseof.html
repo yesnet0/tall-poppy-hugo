@@ -10,13 +10,11 @@
   <link rel="icon" href="{{ "images/tallpoppygroup_square.png" | relURL }}">
   <link rel="apple-touch-icon" href="{{ "images/tallpoppygroup_square.png" | relURL }}">
 
-  <!-- Google Fonts - Inter -->
+  <!-- CJE / Tall Poppy design system -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- Tailwind CSS -->
-  <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
+  <link rel="stylesheet" href="{{ "css/design-system.css" | relURL }}">
+  <link rel="stylesheet" href="{{ "css/tallpoppy.css" | relURL }}">
 
   <!-- Canonical URL -->
   <link rel="canonical" href="{{ .Permalink }}">
@@ -57,10 +55,10 @@
   </script>
   {{ end }}
 </head>
-<body class="min-h-screen flex flex-col">
+<body class="tp-flex-col">
   {{ partial "header.html" . }}
 
-  <main class="flex-1">
+  <main class="tp-main">
     {{ block "main" . }}{{ end }}
   </main>
 
@@ -79,13 +77,11 @@
         menuOverlay.classList.add('open');
         document.body.style.overflow = 'hidden';
       }
-
       function closeMenuFn() {
         mobileMenu.classList.remove('open');
         menuOverlay.classList.remove('open');
         document.body.style.overflow = '';
       }
-
       if (menuToggle) menuToggle.addEventListener('click', openMenu);
       if (closeMenu) closeMenu.addEventListener('click', closeMenuFn);
       if (menuOverlay) menuOverlay.addEventListener('click', closeMenuFn);
