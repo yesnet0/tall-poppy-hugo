@@ -1,5 +1,33 @@
 # Changelog
 
+## v2.0.0 - CJE / Tall Poppy Design System (2026-05-31)
+
+Re-skinned the site to the `cje-tall-poppy-design-system-template` (Claude Design
+handoff bundle), applied on top of the live SEO/analytics work.
+
+### Added
+
+- `static/css/design-system.css` — brand tokens (warm paper, poppy crimson `#B5202A`, Noto Sans / JetBrains Mono / EB Garamond) + semantic type classes. Loaded sitewide via `baseof.html`.
+- `static/css/tallpoppy.css` — component layer (header, hero, portfolio cards, advisory band, page-shell, forms, footer) with `:focus-visible` a11y states and responsive rules.
+- `kicker` / `role` / `tagline` fields on `data/companies.yaml` for the card layout.
+
+### Changed
+
+- All layouts rewritten to the design system: paper sticky header with portfolio dropdown, lone-poppy hero, flat role-badged portfolio cards + serif company detail, dark advisory CTA band, page-shell about/advisory/contact, brand footer, branded 404.
+- Site title trimmed to **Tall Poppy Group** (dropped the `Security | Technology | Policy | Startups` suffix); footer tagline trimmed to **Applied cybersecurity.**
+
+### Removed
+
+- Tailwind utilities are no longer used for rendering (CI still emits `static/css/style.css` via the Tailwind build, but it is unreferenced). Inter-only font link and tsparticles hero animation removed.
+
+### Preserved
+
+- Fathom analytics, Organization JSON-LD, canonical + OG/Twitter cards, GA4, the contact Cloudflare Worker action (`tpg-contact-form.cje.workers.dev`), and all factual company/advisory data.
+
+### Verified
+
+- Clean build on Hugo **0.155.2** (CI-pinned) and 0.161; Interceptor screenshots of every page on production; live HTML confirmed.
+
 ## v1.0.0 - Hugo Conversion (2026-02-09)
 
 ### Migrated

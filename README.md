@@ -185,13 +185,33 @@ The contact form uses [Formspree](https://formspree.io/) for submission handling
 2. Create a new form
 3. Update the form action URL in `layouts/contact/single.html`
 
+## Design System (v2.0.0)
+
+The site is styled by the **CJE / Tall Poppy design system** (from the Claude Design
+`cje-tall-poppy-design-system-template` bundle), not Tailwind utilities. Two static
+stylesheets in `static/css/` are loaded directly by `layouts/_default/baseof.html`
+and copied verbatim by Hugo (they survive the CI Tailwind build, which only writes the
+now-unreferenced `style.css`):
+
+- **`design-system.css`** — brand tokens: warm paper `#FAF7F1`, single accent poppy
+  crimson `#B5202A`, the `--n-*` / `--poppy-*` / `--space-*` / `--radius-*` ramps, the
+  type scale, and semantic type classes. Type stack: Noto Sans (display + UI),
+  JetBrains Mono (kickers/tags), EB Garamond (long-form). **Edit tokens here.**
+- **`tallpoppy.css`** — component layer: `.tp-header`, `.tp-hero`, `.tp-card`,
+  `.tp-band` (dark advisory CTA), `.tp-shell` (about/advisory/contact), `.tp-form`,
+  `.tp-footer`, plus `:focus-visible` a11y states and responsive rules. **Edit
+  component styling here**; reuse the CSS variables, don't hardcode values.
+
+To restyle: change a token in `design-system.css` or a component rule in
+`tallpoppy.css` — no build step needed locally (Hugo serves `static/` as-is).
+
 ## Architecture Decisions
 
 1. **Hugo over Next.js** - Static site generation for simpler hosting and better performance
-2. **Tailwind CSS** - Maintains visual parity with original design
-3. **Data files** - Company data in YAML for easy editing without touching templates
-4. **Formspree** - Static-friendly form handling (replaces Next.js server actions)
-5. **CSS geometric background** - Replaces tsparticles animation for simplicity
+2. **Design-system CSS over Tailwind** - Two hand-authored sheets (`design-system.css` + `tallpoppy.css`) carry the brand; Tailwind is no longer used for rendering
+3. **Data files** - Company data in YAML (`data/companies.yaml` carries `kicker`/`role`/`tagline`); easy editing without touching templates
+4. **Cloudflare Worker** - Contact form posts to `tpg-contact-form.cje.workers.dev`
+5. **Flat paper aesthetic** - One crimson accent, square-ish flat cards, lone-poppy hero (no particles/gradient-wash)
 
 ## Migration Notes
 
